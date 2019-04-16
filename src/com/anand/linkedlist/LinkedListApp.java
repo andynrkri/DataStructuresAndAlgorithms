@@ -57,13 +57,13 @@ public class LinkedListApp {
         System.out.println("done");
     }
 
-    static Link insertNodeAtPosition(int data, int position) {
+    static void insertNodeAtPosition(int data, int position) {
         Link head = linkedList.getFirst();
         Link newNode = new Link();
         newNode.setData(data);
         if (head == null) {
             head = newNode;
-            return head;
+            return;
         }
         Link current = head, previous = null;
         int index = 0;
@@ -78,7 +78,6 @@ public class LinkedListApp {
             previous.setNext(newNode);
         }
         newNode.setNext(current);
-        return head;
     }
 
     public static void main(String[] args) {
