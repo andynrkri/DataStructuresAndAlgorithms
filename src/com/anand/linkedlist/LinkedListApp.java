@@ -57,6 +57,30 @@ public class LinkedListApp {
         System.out.println("done");
     }
 
+    static Link insertNodeAtPosition(int data, int position) {
+        Link head = linkedList.getFirst();
+        Link newNode = new Link();
+        newNode.setData(data);
+        if (head == null) {
+            head = newNode;
+            return head;
+        }
+        Link current = head, previous = null;
+        int index = 0;
+        while (index != position) {
+            previous = current;
+            current = current.getNext();
+            index++;
+        }
+        if (previous == null) {
+            head = newNode;
+        } else {
+            previous.setNext(newNode);
+        }
+        newNode.setNext(current);
+        return head;
+    }
+
     public static void main(String[] args) {
         Link firstNode = new Link();
         firstNode.setData(1);
@@ -68,5 +92,6 @@ public class LinkedListApp {
         linkedList.setFirst(firstNode);
 
         insertInSortedList(3);
+        insertNodeAtPosition(4, 2);
     }
 }
